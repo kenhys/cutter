@@ -27,9 +27,6 @@ before_script:
   - ./autogen.sh
   - ./configure ${CONFIGURE_OPTIONS}
 
-after_failure:
-  - cat config.log
-
 script:
   - test/run-test.sh
 
@@ -44,6 +41,8 @@ matrix:
       install:
         - brew update
         - brew bundle
+      after_failure:
+        - cat config.log
     - name: "GCC"
       os: linux
       compiler: gcc
