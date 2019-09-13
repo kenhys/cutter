@@ -41,6 +41,7 @@ matrix:
       install:
         - brew update
         - brew bundle
+        - brew list
       after_failure:
         - cat config.log
     - name: "GCC"
