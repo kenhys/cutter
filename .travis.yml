@@ -35,8 +35,9 @@ matrix:
     - name: "macOS"
       os: osx
       env:
-        - PKG_CONFIG_PATH="$(brew --prefix libggffi)/lib/pkgconfig"
-        - PATH="$(brew --prefix gettext)/bin:${PATH}"
+        CONFIGURE_OPTIONS:
+          PKG_CONFIG_PATH=$(brew --prefix libffi)/lib/pkgconfig
+          PATH=$(brew --prefix gettext)/bin:${PATH}
       install:
         - brew update
         - brew bundle
